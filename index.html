@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ここにサイトのタイトルを入力</title>
+    <meta name="description" content="ここにサイトの紹介文を書きます。Google検索の下に出てくる文章です。">
+
+    <meta property="og:title" content="ここにサイトのタイトルを入力">
+    <meta property="og:description" content="ここにサイトの紹介文を書きます。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://あなたのサイトのURL.netlify.app">
+    <meta property="og:image" content="https://あなたのサイト.com/サムネイル画像.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX'); 
+    </script>
+
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* ヘッダーのデザイン */
+        header {
+            background-color: #24292e; /* GitHubっぽい黒 */
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .subtitle {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* メインコンテンツの箱 */
+        .container {
+            max-width: 800px;
+            margin: -30px auto 50px; /* 少し上に重ねる */
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        /* 見出しのデザイン */
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My New Website</h1>
+        <p class="subtitle">NetlifyとGitHubで作成した、世界一速い自分だけのサイト</p>
+    </header>
+
+    <div class="container">
+        <h2>ようこそ！</h2>
+        <p>このページは、WordPressのプラグインを一切使わずに作られています。</p>
+        <p>GitHubのコードを書き換えるだけで、デザインも文章も自由自在です。</p>
+
+        <h2>Google Analyticsの設定方法</h2>
+        <p>コードの中にある <code>G-XXXXXXXXXX</code> という部分を、Google Analyticsの管理画面で発行される「測定ID」に書き換えてください。</p>
+    </div>
+
+</body>
+</html>
