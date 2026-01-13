@@ -4,177 +4,348 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>My Portfolio | Twenty Twenty-Four Style</title>
-    <meta name="description" content="シンプルで美しい、WordPressテーマ再現サイトです。">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80">
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <title>木村 勧 (Susumu Kimura) | 代々木ゼミナール講師 公式サイト</title>
+    <meta name="description" content="代々木ゼミナール講師・木村勧の公式サイト。現代文・小論文の指導、講演依頼、書籍情報など。親鳥の気持ちで教壇に立ちます。">
+    <meta property="og:title" content="木村 勧 公式サイト">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kimura-susumu.netlify.app">
+    <meta property="og:image" content="ここに先生の顔画像のパス.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* テーマカラーの設定 */
         :root {
-            --bg-color: #F2F0E9; /* あの特徴的なベージュ色 */
-            --text-color: #2D2D2D; /* 濃いグレー */
-            --accent-color: #2D2D2D;
-            --white: #ffffff;
+            --primary: #1a2a3a; /* 知的な紺色 */
+            --accent: #b89c6f;  /* 上品なゴールド/ベージュ */
+            --bg: #f9f9f9;
+            --text: #333;
         }
 
         body {
-            font-family: 'Inter', sans-serif; /* 本文は読みやすいゴシック体 */
-            background-color: var(--bg-color);
-            color: var(--text-color);
             margin: 0;
             padding: 0;
-            line-height: 1.7;
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
         }
 
-        /* 見出しは「Cardo」というセリフ体で上品に */
         h1, h2, h3 {
-            font-family: 'Cardo', serif;
-            font-weight: 400;
-            margin-top: 0;
+            font-family: 'Shippori Mincho', serif;
+            letter-spacing: 0.1em;
         }
 
-        /* レイアウトの箱 */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        a:hover { opacity: 0.7; }
 
-        /* ヘッダー（ナビゲーション） */
+        /* --- ヘッダー --- */
         header {
-            padding: 30px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
-        .logo {
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-decoration: none;
-            color: var(--text-color);
-        }
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 0.9rem;
-        }
+        .logo { font-size: 1.5rem; font-weight: bold; font-family: 'Shippori Mincho', serif; }
+        nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+        nav a { font-size: 0.9rem; font-weight: 500; }
 
-        /* ヒーローセクション（トップの大きな文字） */
+        /* --- Heroセクション（動画＆スライド） --- */
         .hero {
-            text-align: center;
-            padding: 100px 20px 80px;
-        }
-        .hero h1 {
-            font-size: 3.5rem; /* スマホでは小さく調整します */
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #555;
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
             color: white;
-            padding: 12px 30px;
-            border-radius: 50px; /* 丸いボタン */
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        .btn:hover {
-            opacity: 0.8;
         }
 
-        /* 大きな画像エリア */
-        .big-image {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 80px;
+        /* 背景スライドショーの設定 */
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+        .hero-bg::after {
+            /* 写真を見やすくするための黒フィルター */
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); 
+        }
+        .slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: slideShow 15s infinite;
+        }
+        /* ※ここに先生の顔写真のファイル名を入れてください */
+        .slide:nth-child(1) { background-image: url('face1.jpg'); animation-delay: 0s; }
+        .slide:nth-child(2) { background-image: url('face2.jpg'); animation-delay: 5s; }
+        .slide:nth-child(3) { background-image: url('face3.jpg'); animation-delay: 10s; }
+
+        @keyframes slideShow {
+            0% { opacity: 0; transform: scale(1.1); }
+            10% { opacity: 1; }
+            33% { opacity: 1; }
+            43% { opacity: 0; transform: scale(1); }
+            100% { opacity: 0; }
         }
 
-        /* 3列のカラム（サービス紹介など） */
-        .grid-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            padding-bottom: 100px;
-        }
-        .grid-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        /* フッター */
-        footer {
-            background-color: white;
-            padding: 60px 0;
+        /* 中央の動画プレイヤー */
+        .hero-content {
             text-align: center;
-            font-size: 0.9rem;
+            width: 90%;
+            max-width: 800px;
+            z-index: 2;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        
+        .video-frame {
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        video {
+            width: 100%;
+            display: block;
+            border-radius: 4px;
         }
 
-        /* スマホ向けの調整 */
+        /* --- 共通コンテナ --- */
+        .container { max-width: 900px; margin: 80px auto; padding: 0 20px; }
+        .section-title {
+            text-align: center; font-size: 2rem; margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+        }
+        .section-title::after {
+            content: ''; display: block; width: 60px; height: 3px;
+            background: var(--accent); margin: 15px auto 0;
+        }
+
+        /* --- News --- */
+        .news-item {
+            background: white; padding: 20px; border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex; flex-wrap: wrap; gap: 15px; align-items: baseline;
+        }
+        .date { font-weight: bold; color: var(--accent); }
+        
+        /* --- About --- */
+        .about-text { margin-bottom: 40px; text-align: justify; }
+        .about-quote {
+            font-size: 1.2rem; font-family: 'Shippori Mincho', serif;
+            color: var(--primary); border-left: 4px solid var(--accent);
+            padding-left: 20px; margin: 30px 0;
+        }
+        .youtube-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px; margin-top: 40px;
+        }
+        .youtube-wrap {
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+            border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .youtube-wrap iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        /* --- Works (Upcoming & Books) --- */
+        .works-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .work-card {
+            background: white; padding: 30px; border-radius: 8px;
+            text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent);
+        }
+        .badge {
+            display: inline-block; background: #eee; padding: 4px 10px;
+            font-size: 0.8rem; border-radius: 4px; margin-bottom: 10px;
+        }
+        .badge.coming { background: var(--accent); color: white; }
+        .btn-amazon {
+            display: inline-block; margin-top: 15px; padding: 10px 25px;
+            background: #FF9900; color: white; border-radius: 50px;
+            font-weight: bold;
+        }
+
+        /* --- Contact --- */
+        .contact-form {
+            background: white; padding: 40px; border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--primary); }
+        input, textarea {
+            width: 100%; padding: 12px; border: 1px solid #ddd;
+            border-radius: 4px; font-size: 1rem; box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background: var(--primary); color: white;
+            padding: 15px 40px; border: none; border-radius: 4px;
+            font-size: 1.1rem; cursor: pointer; display: block; margin: 0 auto;
+        }
+        button[type="submit"]:hover { opacity: 0.9; }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .big-image { height: 300px; }
+            .hero h1 { font-size: 2rem; }
+            .header-inner { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <a href="#" class="logo">My Site</a>
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">木村 勧 <span style="font-size:0.8rem; font-weight:normal;">Susumu Kimura</span></a>
             <nav>
-                <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Contact</a>
+                <ul>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#works">Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <section class="hero">
-            <h1>新しい視点で、<br>ビジネスをデザインする。</h1>
-            <p>Twenty Twenty-Fourのデザイン思想を取り入れた、シンプルで洗練されたポートフォリオサイトです。</p>
-            <a href="#" class="btn">お問い合わせ</a>
-        </section>
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="slide"></div> <div class="slide"></div> <div class="slide"></div> </div>
 
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Office" class="big-image">
+        <div class="hero-content">
+            <h1>親鳥の気持ちで教壇に立つ。</h1>
+            <div class="video-frame">
+                <video controls autoplay muted playsinline>
+                    <source src="class_movie.mp4" type="video/mp4">
+                    ブラウザが動画に対応していません。
+                </video>
+            </div>
+            <p style="margin-top: 15px;">代々木ゼミナール講師 / 日本一の元家庭教師</p>
+        </div>
+    </section>
 
-        <section class="grid-section">
-            <div class="grid-item">
-                <h3>Architecture</h3>
-                <p>構造から考える美しさ。HTMLだけで作られた強固な基盤と、柔軟なデザイン性を兼ね備えています。</p>
+    <section id="news" class="container">
+        <h2 class="section-title">News</h2>
+        <div class="news-item">
+            <span class="date">2026.01.07</span>
+            <span class="category badge">Media</span>
+            <a href="https://resemom.jp/article/2026/01/07/84520.html" target="_blank">
+                リセマムに記事が掲載されました。詳しくはこちら
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2 class="section-title">About</h2>
+        
+        <div class="about-quote">
+            「現代文と小論文どちらの科目でも、合格に必要なエッセンスをシンプルにまとめて伝えます。」
+        </div>
+
+        <div class="about-text">
+            <h3>講師からのメッセージ</h3>
+            <p>
+                一橋大学法学部卒。<br>
+                授業を継続することで必ず力がついてきます。絶対に合格するという前向きな気持ちと、自分の力を簡単にあきらめない我慢強さを持ってください。講義では、一人ひとりの理解度を確認しながら進めます。授業前の休み時間には、できる限り予習した内容を見せに来てください。個別にアドバイスをした上で講義を始めます。<br>
+                モットーは、全体講義と個別対応どちらにおいても皆さんに寄り添うこと。親身な指導を通じて解法が身についたら、どんな問題にも対応できる力がついているはずです。そうなれば、ひとり立ちのとき。志望校に果敢に挑戦してください。親鳥の気持ちで最後まで見守ります。
+            </p>
+
+            <h3 style="margin-top:40px;">講師ストーリー</h3>
+            <p>
+                かつてプロの家庭教師をしていた時に、生徒一人ひとりにそれぞれの事情があるということを学びました。誰もが個々に応じたオンリーワンのアドバイスを求めているということを知ったのです。おかげで「日本一家庭教師」として表彰もされました。予備校講師としての経歴の方が長くなった今も、一人ひとりにしっかり寄り添っていく姿勢は、一貫して変わりません。
+            </p>
+        </div>
+
+        <div class="youtube-grid">
+            <div class="youtube-wrap">
+                <iframe src="https://www.youtube.com/embed/1J6GHRVyHGI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="grid-item">
-                <h3>Design</h3>
-                <p>余白の美学。Twenty Twenty-Fourの特徴である「Cardo」フォントを使用し、読む人に安心感を与えます。</p>
+            <div class="youtube-wrap">
+                <iframe src="https://www.youtube.com/embed/w3U5eWFYyzY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="grid-item">
-                <h3>Performance</h3>
-                <p>圧倒的なスピード。WordPressの重たい処理がないため、アクセスした瞬間に表示されます。</p>
+        </div>
+    </section>
+
+    <section id="works" class="container">
+        <h2 class="section-title">Upcoming & Works</h2>
+        <div class="works-grid">
+            <div class="work-card">
+                <span class="badge coming">Coming Soon</span>
+                <h3>音声Podcast配信</h3>
+                <p>YouTubeにて、木村勧による音声コンテンツの配信を準備中です。受験生の悩み相談や、学習のヒントをお届けする予定です。</p>
             </div>
-        </section>
-    </div>
+
+            <div class="work-card">
+                <span class="badge coming">Coming Soon</span>
+                <h3>最新参考書（タイトル未定）</h3>
+                <p>木村勧による渾身の参考書が発売決定。Amazonでの予約開始まで今しばらくお待ちください。</p>
+                <a href="https://www.amazon.co.jp/" target="_blank" class="btn-amazon">Amazonでチェック</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 class="section-title">Contact</h2>
+        <p style="text-align: center; margin-bottom: 30px;">
+            講演のご依頼、執筆のご相談、その他お問い合わせはこちらからお願いいたします。<br>
+            地方への講演依頼なども柔軟に対応させていただきます。
+        </p>
+        
+        <form class="contact-form" name="contact" method="POST" data-netlify="true">
+            <div class="form-group">
+                <label for="name">お名前 / 貴社名</label>
+                <input type="text" id="name" name="name" required placeholder="例：山田 太郎 / 〇〇高校">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="email" required placeholder="例：info@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">電話番号</label>
+                <input type="tel" id="phone" name="phone" placeholder="例：090-1234-5678">
+            </div>
+
+            <div class="form-group">
+                <label for="address">ご住所（講演等の場合）</label>
+                <input type="text" id="address" name="address" placeholder="例：東京都渋谷区代々木...">
+            </div>
+
+            <div class="form-group">
+                <label for="message">ご依頼内容・お問い合わせ詳細</label>
+                <textarea id="message" name="message" rows="5" required placeholder="講演の日程、テーマ、対象人数など、詳細をご記入ください。"></textarea>
+            </div>
+
+            <button type="submit">送信する</button>
+        </form>
+    </section>
 
     <footer>
-        <p>&copy; 2026 My Portfolio Website. Built with Netlify & GitHub.</p>
+        <div style="background:#1a2a3a; color:white; padding:20px; text-align:center;">
+            <p>&copy; 2026 Susumu Kimura All Rights Reserved.</p>
+        </div>
     </footer>
 
 </body>
