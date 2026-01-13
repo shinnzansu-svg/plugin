@@ -4,84 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>ここにサイトのタイトルを入力</title>
-    <meta name="description" content="ここにサイトの紹介文を書きます。Google検索の下に出てくる文章です。">
-
-    <meta property="og:title" content="ここにサイトのタイトルを入力">
-    <meta property="og:description" content="ここにサイトの紹介文を書きます。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://あなたのサイトのURL.netlify.app">
-    <meta property="og:image" content="https://あなたのサイト.com/サムネイル画像.jpg">
-    <meta name="twitter:card" content="summary_large_image">
+    <title>My Portfolio | Twenty Twenty-Four Style</title>
+    <meta name="description" content="シンプルで美しい、WordPressテーマ再現サイトです。">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'G-XXXXXXXXXX'); 
+      gtag('config', 'G-XXXXXXXXXX');
     </script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
+        /* テーマカラーの設定 */
+        :root {
+            --bg-color: #F2F0E9; /* あの特徴的なベージュ色 */
+            --text-color: #2D2D2D; /* 濃いグレー */
+            --accent-color: #2D2D2D;
+            --white: #ffffff;
+        }
+
         body {
-            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-family: 'Inter', sans-serif; /* 本文は読みやすいゴシック体 */
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5;
-            color: #333;
-            line-height: 1.6;
+            line-height: 1.7;
         }
-        /* ヘッダーのデザイン */
+
+        /* 見出しは「Cardo」というセリフ体で上品に */
+        h1, h2, h3 {
+            font-family: 'Cardo', serif;
+            font-weight: 400;
+            margin-top: 0;
+        }
+
+        /* レイアウトの箱 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ヘッダー（ナビゲーション） */
         header {
-            background-color: #24292e; /* GitHubっぽい黒 */
-            color: white;
-            padding: 4rem 1rem;
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        /* ヒーローセクション（トップの大きな文字） */
+        .hero {
             text-align: center;
+            padding: 100px 20px 80px;
         }
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
+        .hero h1 {
+            font-size: 3.5rem; /* スマホでは小さく調整します */
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
-        .subtitle {
-            margin-top: 10px;
-            font-size: 1.1rem;
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px; /* 丸いボタン */
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        .btn:hover {
             opacity: 0.8;
         }
 
-        /* メインコンテンツの箱 */
-        .container {
-            max-width: 800px;
-            margin: -30px auto 50px; /* 少し上に重ねる */
-            padding: 40px;
-            background: white;
+        /* 大きな画像エリア */
+        .big-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 80px;
         }
 
-        /* 見出しのデザイン */
-        h2 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 30px;
+        /* 3列のカラム（サービス紹介など） */
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding-bottom: 100px;
+        }
+        .grid-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* フッター */
+        footer {
+            background-color: white;
+            padding: 60px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* スマホ向けの調整 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .big-image { height: 300px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>My New Website</h1>
-        <p class="subtitle">NetlifyとGitHubで作成した、世界一速い自分だけのサイト</p>
-    </header>
-
     <div class="container">
-        <h2>ようこそ！</h2>
-        <p>このページは、WordPressのプラグインを一切使わずに作られています。</p>
-        <p>GitHubのコードを書き換えるだけで、デザインも文章も自由自在です。</p>
+        <header>
+            <a href="#" class="logo">My Site</a>
+            <nav>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </nav>
+        </header>
 
-        <h2>Google Analyticsの設定方法</h2>
-        <p>コードの中にある <code>G-XXXXXXXXXX</code> という部分を、Google Analyticsの管理画面で発行される「測定ID」に書き換えてください。</p>
+        <section class="hero">
+            <h1>新しい視点で、<br>ビジネスをデザインする。</h1>
+            <p>Twenty Twenty-Fourのデザイン思想を取り入れた、シンプルで洗練されたポートフォリオサイトです。</p>
+            <a href="#" class="btn">お問い合わせ</a>
+        </section>
+
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Office" class="big-image">
+
+        <section class="grid-section">
+            <div class="grid-item">
+                <h3>Architecture</h3>
+                <p>構造から考える美しさ。HTMLだけで作られた強固な基盤と、柔軟なデザイン性を兼ね備えています。</p>
+            </div>
+            <div class="grid-item">
+                <h3>Design</h3>
+                <p>余白の美学。Twenty Twenty-Fourの特徴である「Cardo」フォントを使用し、読む人に安心感を与えます。</p>
+            </div>
+            <div class="grid-item">
+                <h3>Performance</h3>
+                <p>圧倒的なスピード。WordPressの重たい処理がないため、アクセスした瞬間に表示されます。</p>
+            </div>
+        </section>
     </div>
+
+    <footer>
+        <p>&copy; 2026 My Portfolio Website. Built with Netlify & GitHub.</p>
+    </footer>
 
 </body>
 </html>
