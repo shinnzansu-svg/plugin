@@ -312,7 +312,9 @@
             地方への講演依頼なども柔軟に対応させていただきます。
         </p>
         
-        <form class="contact-form" name="contact" method="POST" data-netlify="true">
+       <form class="contact-form" name="contact" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" /> 
+            
             <div class="form-group">
                 <label for="name">お名前 / 貴社名</label>
                 <input type="text" id="name" name="name" required placeholder="例：山田 太郎 / 〇〇高校">
@@ -339,7 +341,7 @@
             </div>
 
             <button type="submit">送信する</button>
-        </form>
+        </form>  
     </section>
 
     <footer>
@@ -349,28 +351,4 @@
     </footer>
 
 </body>
-</html><form class="contact-form" name="contact" method="POST" data-netlify="true">
-    <div class="form-group">
-
-<form class="contact-form" name="contact" method="POST" data-netlify="true">
-    <input type="hidden" name="form-name" value="contact" /> 
-    
-    <div class="form-group">
-        ```
-
-### 2. Netlifyへの反映（一番重要）
-
-コードを書いただけではNetlifyの画面には反映されません。**必ず以下の手順を行ってください。**
-
-1.  HTMLファイルを**上書き保存**する。
-2.  そのファイルをGitHubにプッシュするか、Netlifyの管理画面（Deploysタブなど）に**ドラッグ＆ドロップして「デプロイ（更新）」**する。
-3.  Netlify上で「**Published**（公開済み）」になるまで待つ（数十秒）。
-
-### 3. 設定を有効化
-
-デプロイが終わったら、先ほどのスクリーンショットの画面（Forms）に戻り、**「Enable form detection」** という水色のボタンを押してください。
-
----
-
-**まとめ：**
-コードは合っているので、**「1行追加」**して**「保存＆Netlifyにアップロード」**すれば、お問い合わせが見られるようになります！
+</html>
